@@ -1,0 +1,65 @@
+@html.extend('layout', function(model) {
+  @html.block('content', function(model) {
+    <div class="container">
+        <div class="botoes">
+            <button id="boleto" type="button" class="btn btn-sucess">Gerar Json</button>
+            <button id="email" type="button" class="btn btn-sucess">Gerar Email</button>
+            <button id="impressao" type="button" class="btn btn-sucess">Gerar Impressão</button>
+        </div>
+        <div class="">
+
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                <form action="/" method="POST">
+                  <label for="entrada">Entrada: </label>
+                    <textarea class="form-control" rows="15" cols="60" id="entrada" name="entradaTexto"></textarea>
+                  <div class="botoes-enviar">
+                      <button class="btn btn-sucess" type="submit" formaction="/boleto">Incluir Boleto</button>
+                      <button class="btn btn-sucess" type="submit" formaction="/email">Incluir Email</button>
+                      <button class="btn btn-sucess" type="submit" formaction="/impressao">Incluir Impressão</button>
+                  </div>
+                </form>
+ 
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="saida">Saida:</label>
+                    <textarea class="form-control" rows="15" cols="60" id="saida">@model.dados</textarea>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-4">
+                <form action="/" method="POST">
+                    <div class="form-group"></div>
+                    <label for="idIntegracao">Id Integração</label>
+                    <input name="idIntegracao" type="text" class="form-control" placeholder="idIntegracao">
+                    <button type="submit" class="btn btn-sucess" formaction="/idIntegracao">Consultar Boleto</button>
+                    <button type="submit" class="btn btn-sucess" formaction="/descartar">Descartar Boleto</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <form action="/" method="POST">
+                    <div class="form-group"></div>
+                    <label for="protEmail">Protocolo Email</label>
+                    <input name="protEmail" type="text" class="form-control" placeholder="Protocolo Email">
+                    <button type="submit" class="btn btn-sucess" formaction="/protEmail">Consultar Email</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <form action="/" method="POST">
+                    <div class="form-group"></div>
+                    <label for="protEmail">Protocolo Impressão</label>
+                    <input name="protEmail" type="text" class="form-control" placeholder="Protocolo Impressão">
+                    <button type="submit" class="btn btn-sucess" formaction="/protImpressao">Consultar impressão</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/function.js"></script>
+  })
+})
