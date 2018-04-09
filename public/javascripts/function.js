@@ -1,3 +1,8 @@
+const retorno = 
+{
+    "arquivo":"Arquivo Base64"
+  }
+  
 const incluirBody = 
 [
   {
@@ -27,7 +32,7 @@ const incluirBody =
     "TituloMensagem01": "Juros de 0,01 ao dia",
     "TituloMensagem02": "Nao receber apos 30 dias de atraso",
     "TituloMensagem03": "Titulo sujeito a protesto apos 30 dias",
-    "TituloNossoNumero": "6",
+    "TituloNossoNumero": contador,
     "TituloNumeroDocumento": "01012020",
     "TituloValor": "0,02",
     "TituloLocalPagamento": "Pagável em qualquer banco até o vencimento."
@@ -53,13 +58,51 @@ const gerarImpressao =
       "IdIntegracao2"
     ]
   }
+const alterValor = 
+{
+    "Tipo" : "1",
+    "Boletos" : [
+      {
+      "IdIntegracao": "IdIntegracao1",
+      "TituloValor": "100,00"
+      },
+      {
+      "IdIntegracao": "IdIntegracao2",
+      "TituloValor": "5000,00"
+      }
+    ]
+  }
+const alterData = 
+{
+  "Tipo" : "0",
+  "Boletos" : [
+    {
+    "IdIntegracao": "IdIntegracao1",
+    "TituloDataVencimento": "20/06/2018"
+    },
+    {
+    "IdIntegracao": "IdIntegracao2",
+    "TituloDataVencimento": "20/06/2018"
+    }
+  ]
+}
+//Funções gerar 
 document.getElementById("boleto").addEventListener("click",()=>{
-    document.getElementById("entrada").innerHTML=JSON.stringify(incluirBody,null,2)
+   // document.getElementById("entrada").innerHTML=''
+    document.getElementById("entrada").innerHTML+=JSON.stringify(incluirBody,null,2)
 })
 document.getElementById("email").addEventListener("click",()=>{
-    document.getElementById("entrada").innerHTML=JSON.stringify(gerarEmail,null,2);
+    document.getElementById("entrada").innerHTML=JSON.stringify(gerarEmail,null,2)
 })
 document.getElementById("impressao").addEventListener("click",()=>{
-    document.getElementById("entrada").innerHTML=JSON.stringify(gerarImpressao,null,2);
+    document.getElementById("entrada").innerHTML=JSON.stringify(gerarImpressao,null,2)
 })
-//gerarBoleto = document.getElementById()
+document.getElementById("upload").addEventListener("click",()=>{
+    document.getElementById("entrada").innerHTML=JSON.stringify(retorno,null,2)
+})
+document.getElementById("alteracaoData").addEventListener("click",()=>{
+    document.getElementById("entrada").innerHTML=JSON.stringify(alterData,null,2)
+})
+document.getElementById("alteracaoValor").addEventListener("click",()=>{
+    document.getElementById("entrada").innerHTML=JSON.stringify(alterValor,null,2)
+})
