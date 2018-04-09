@@ -2,7 +2,23 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+#botao-remessa{
+  margin-top:20px;
+}
+#botao-baixa{
+  margin-top:20px;
+}
+.botoes-enviar{
+  margin:10px;
+  padding-top:5px;
 
+}
+.botoes-consultar{
+  margin:10px;
+}
+#alteracao{
+  margin-top:10px;
+}
 a {
   color: #00B7FF;
 }
